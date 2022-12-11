@@ -1,29 +1,43 @@
+import {
+  productAdd,
+  productGetAll,
+  productGetByID,
+  productRemove,
+  productFind,
+  productEdit,
+} from "./actionTypes";
 // CRUD Operations
 
 // CREATE
 export const addProduct = (item) => ({
-  type: "ADD_PRODUCT",
+  type: productAdd,
   payload: item,
 });
 
 // READ
 export const getAllProducts = () => ({
-  type: "GET_ALL_PRODUCT",
+  type: productGetAll,
 });
 
 export const getById = (id) => ({
-  type: "GET_PRODUCT_BY_ID",
+  type: productGetByID,
   payload: id,
 });
 
 // UPDATE
 export const editProduct = (item) => ({
-  type: "EDIT_PRODUCT",
+  type: productEdit,
   payload: item,
 });
 
 // DELETE
 export const removeProduct = (id) => ({
-  type: "REMOVE_PRODUCT",
+  type: productRemove,
+  payload: id,
+});
+
+// Find
+export const findProduct = (id) => ({
+  type: productFind,
   payload: id,
 });
