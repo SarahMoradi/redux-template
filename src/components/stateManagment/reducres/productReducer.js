@@ -9,9 +9,10 @@ import {
 
 const initialState = {
   items: [
-    { id: 1, productName: "Product A", price: 100 },
-    { id: 2, productName: "Product B", price: 200 },
-    { id: 3, productName: "Product C", price: 300 },
+    { productId: 1, productName: "Product A", productPrice: 100 },
+    { productId: 2, productName: "Product B", productPrice: 200 },
+    { productId: 3, productName: "Product C", productPrice: 300 },
+    { productId: 4, productName: "Product D", productPrice: 400 },
   ],
   isLoading: true,
 };
@@ -21,11 +22,11 @@ function ProductReducer(state = initialState, action) {
     case productGetAll:
       return {...state, items: state.items};
     case productGetByID:
-      return {...state, items: state.items.find((p) => p.id == action.payload)}
+      return {...state, items: state.items.find((p) => p.productId == action.payload)}
     case productAdd:
       return {...state, items: state.items.concat([action.payload])};
     case productRemove:
-      return {...state, items: state.items.filter((p) => p.id != action.payload)};
+      return {...state, items: state.items.filter((p) => p.productId != action.payload)};
     default:
       return state;
       break;

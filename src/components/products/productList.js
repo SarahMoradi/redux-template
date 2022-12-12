@@ -18,15 +18,12 @@ const ProductList = (props) => {
         <tbody>
           {props.products.map((item) => {
             return (
-              <tr>
-                <th scope="row">{item.id}</th>
+              <tr key={item.productId}>
+                <th scope="row">{item.productId}</th>
                 <td>{item.productName}</td>
-                <td>{item.price}</td>
+                <td>{`$`}{item.productPrice}</td>
                 <td className="text-center">
-                  <Button
-                    color="danger"
-                    onClick={() => props.remove(item.id)}
-                  >
+                  <Button color="danger" onClick={() => props.remove(item.productId)}>
                     DELETE
                   </Button>
                 </td>
@@ -45,10 +42,9 @@ function mapStateToProps(state) {
   };
 }
 
-
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    remove: id => dispatch(removeProduct(id))
+    remove: (id) => dispatch(removeProduct(id)),
   };
-}
+};
 export default connect(mapStateToProps, mapDispatchToProps)(ProductList);
