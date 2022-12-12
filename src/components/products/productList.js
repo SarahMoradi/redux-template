@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { Button, Table } from "reactstrap";
-import { productRemove } from "../stateManagment/actions/actionTypes";
+import { removeProduct } from "../stateManagment/actions/productActions";
 
 const ProductList = (props) => {
   return (
@@ -48,7 +48,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = dispatch => {
   return {
-    remove: id => dispatch(productRemove(id))
+    remove: id => dispatch(removeProduct(id))
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ProductList);
