@@ -1,3 +1,12 @@
+import {
+  productAdd,
+  productGetAll,
+  productGetByID,
+  productRemove,
+  productFind,
+  productEdit,
+} from "../actions/actionTypes";
+
 const initialState = {
   items: [
     { id: 1, productName: "Product A", price: 100 },
@@ -9,15 +18,14 @@ const initialState = {
 
 function ProductReducer(state = initialState, action) {
   switch (action.type) {
-    case "GET_ALL_PRODUCT":
+    case productGetAll:
       return {...state, items: state.items};
-    case "GET_PRODUCT_BY_ID":
+    case productGetByID:
       return {...state, items: state.items.find((p) => p.id == action.payload)}
-    case "ADD_PRODUCT":
+    case productAdd:
       return {...state, items: state.items.concat([action.payload])};
-    case "REMOVE_PRODUCT":
+    case productRemove:
       return {...state, items: state.items.filter((p) => p.id != action.payload)};
-
     default:
       return state;
       break;
