@@ -4,6 +4,7 @@ import { persistReducer, persistStore } from 'redux-persist'
 import logger from 'redux-logger'
 import reducers from './reducres'
 import storage from 'redux-persist/lib/storage'
+import thunk from 'redux-thunk'
 
 const persistConfig = {
   key: 'root',
@@ -13,11 +14,13 @@ const persistedReducer = persistReducer(persistConfig, reducers)
 
 // export const store = createStore(
 //   persistedReducer,
-//   applyMiddleware(logger)
+//   applyMiddleware( )
 // )
+
+// export const store = createStore(persistedReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 export const store = createStore(
   persistedReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  applyMiddleware(thunk)
 )
 export const persistor = persistStore(store)
