@@ -1,10 +1,10 @@
 import {
   productAdd,
+  productEdit,
+  productFind,
   productGetAll,
   productGetByID,
   productRemove,
-  productFind,
-  productEdit,
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -17,7 +17,7 @@ const initialState = {
   isLoading: true,
 };
 
-function ProductReducer(state = initialState, action) {
+function productReducer(state = initialState, action) {
   switch (action.type) {
     case productGetAll:
       return {...state, items: state.items};
@@ -33,4 +33,4 @@ function ProductReducer(state = initialState, action) {
   }
 }
 
-export default ProductReducer;
+export default productReducer;

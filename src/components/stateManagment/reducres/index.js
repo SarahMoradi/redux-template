@@ -1,8 +1,10 @@
-import ProductReducer from "./productReducer";
 import { combineReducers } from "redux";
+import productReducer from "./productReducer";
+import productThunkReducer from "./productThunkReducer";
 
 export default combineReducers({
-  productState: ProductReducer,
+  productState: productReducer,
+  productThunkState: productThunkReducer,
 });
 
 // const rootReducer = combineReducers({
