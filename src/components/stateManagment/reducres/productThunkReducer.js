@@ -20,6 +20,7 @@ function productThunkReducer(state = initialState, action) {
       return { items: [], message: action.payload, isLoading: false }
     default:
       return state
+      break
   }
 }
 
